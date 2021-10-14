@@ -6,14 +6,14 @@ h1 {
   text-align: center;
 }
 
-p.normal {
-  font-weight: normal;
+.link {
+	text-decoration: none;
+	color: DarkBlue;
+	text-align: center;
 }
+
 p.bold {
   font-weight: bold;
-}
-p.bolder {
-  font-weight: 900;
 }
 
 section {
