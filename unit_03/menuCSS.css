@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Rampart+One&display=swap');
+
+h1 {
+  font-family: Rampart One;
+  font-size: 80px;
+}
+
+.Baskervville {
+  font-family: 'Baskervville', serif;
+}
+
+#Rampart {
+  font-family: 'Rampart One', cursive;
+}
