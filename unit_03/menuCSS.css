@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Rampart+One&display=swap');
+
+h1 {
+  font-family: Rampart One;
+  font-size: 80px;
+  text-align: center;
+}
+
+.link {
+	text-decoration: none;
+	color: DarkBlue;
+	text-align: center;
+}
+
+p.bold {
+  font-weight: bold;
+}
+
+section {
+  border-style:dashed;;
+  background-color:#e6f2ff;
+  padding: 15px;
+  margin: 50px 150px;
+  text-align: center;
+}
+
+body{
+  max-width: 960px;
+  background-color: #e6ffff;
+  margin: 10px auto 0 auto;
+}
+
+footer{
+  text-align: right;
+  margin: 50px 150px
+}
+
+.Baskervville {
+  font-family: 'Baskervville', serif;
+}
+
+#Rampart {
+  font-family: 'Rampart One', cursive;
+}
