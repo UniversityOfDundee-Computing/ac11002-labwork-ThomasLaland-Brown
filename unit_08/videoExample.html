@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  <title>User Demo</title>
+</head>
+
+<body>
+  <ul class="nav">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="#">Active</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">Link</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link disabled">Disabled</a>
+    </li>
+  </ul>
+
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col">
+        <h1>Staff Page</h1>
+        <h2>Meet our Staff</h2>
+      </div>
+    </div>
+    <ul id="authors" class="row"></ul>
+  </div>
+
+
+  <!-- Optional JavaScript; choose one of the two! -->
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+  <!-- Option 2: Separate Popper and Bootstrap JS -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+
+
+<script>
+  function createNode(element) {
+    return document.createElement(element);
+  }
+
+  function append(parent, el) {
+    return parent.appendChild(el);
+  }
+  const numberOfUsers = 9;
+  const ul = document.getElementById('authors');
+  const url = 'https://randomuser.me/api/?results=' + numberOfUsers;
+  fetch(url)
+    .then((resp) => resp.json())
+    .then(function(data) {
+      console.log(data);
+      let authors = data.results;
+      return authors.map(function(author) {
+        var li = createNode('li');
+        var  img = createNode('img');
+        var  span = createNode('span');
+        var column = createNode('div');
+        var card = createNode('div');
+        var cardBody = createNode('div');
+        var p = createNode('p');
+        p.innerHTML = author.email;
+        cardBody.classList.add("card-body");
+        card.classList.add("card");
+        card.classList.add("mt-3");
+        column.classList.add("col-4");
+        img.src = author.picture.large;
+        img.classList.add("card-img-top")
+        span.innerHTML = `${author.name.first} ${author.name.last}`;
+        span.classList.add("card-title");
+        append(card, img);
+        append(cardBody, span);
+        append(cardBody, p);
+        append(card, cardBody);
+        append(column, card);
+        append(ul, column);
+      })
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+</script>
+
+</html>
